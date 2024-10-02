@@ -11,6 +11,7 @@ class MainWindow(QMainWindow):
 
 
         # 버튼 클릭 시 실행될 메서드 연결
+
         self.pb.clicked.connect(self.play_game)
 
     def play_game(self):
