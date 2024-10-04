@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>나의 선택:</string>
+     <string>나:</string>
     </property>
    </widget>
    <widget class="QLabel" name="lbl_com">
@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>컴퓨터 숫자:</string>
+     <string>컴:</string>
     </property>
    </widget>
    <widget class="QLabel" name="lbl_result">
@@ -106,7 +106,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>홀 또는 짝 입력</string>
+     <string>여기에 입력하세요</string>
     </property>
    </widget>
   </widget>

@@ -55,15 +55,15 @@
      <string>야구맞추기</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>90</y>
-      <width>181</width>
-      <height>161</height>
-     </rect>
-    </property>
+   <widget class="QTextEdit" name="te">
+       <property name="geometry">
+           <rect>
+               <x>40</x>
+               <y>90</y>
+               <width>181</width>
+               <height>161</height>
+           </rect>
+       </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
