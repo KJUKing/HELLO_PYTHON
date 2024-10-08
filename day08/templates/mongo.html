@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emp Collection</title>
+</head>
+<body>
+<h1>Emp Collection Data</h1>
+<table border="1px">
+    <tr>
+        <th>_id</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Address</th>
+    </tr>
+    {% for e in mongo_list %}
+    <tr>
+        <td>{{ e.e_id }}</td>
+        <td>{{ e.e_name }}</td>
+        <td>{{ e.gen }}</td>
+        <td>{{ e.addr }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+EMP HTML
+<table border="1px">
+    <tr>
+        <td>사번</td>
+        <td>사번</td>
+        <td>사번</td>
+        <td>사번</td>
+    </tr>
+    {% for e in list %}
+    <tr>
+        <td>{{e.e_id}}</td>
+        <td>{{e.e_name}}</td>
+        <td>{{e.e_gen}}</td>
+        <td>{{e.e_addr}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

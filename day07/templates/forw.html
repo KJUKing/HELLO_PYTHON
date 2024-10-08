@@ -6,5 +6,21 @@
 </head>
 <body>
 FORW HTML
+<h1>Hello, {{name}}</h1>
+<p>arr : {{arr}}</p></br>
+
+{% for i in arr %}
+{{i}}</br>
+{% endfor %}</br>
+
+<p>c: {{c}}</p>
+
+{% for i in c %}
+e_id: {{i.e_id}}<br>
+e_name: {{i.e_name}}<br>
+gen: {{i.gen}}<br>
+addr: {{i.addr}}<br>
+{% endfor %}
+
 </body>
 </html>
