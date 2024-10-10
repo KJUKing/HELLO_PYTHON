@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+    function fn_mod(){
+        document.frm.submit();
+    }
+    </script>
+</head>
+<body>
+emp_mod
+{{vo.e_id}}
+<form action="emp_mod.act" name="frm" method="post">
+    <table border="1px">
+        <tr>
+            <td>사번</td>
+            <td>
+                <input type="text" name="e_id" value="{{vo.e_id}}" />
+            </td>
+            <td>이름</td>
+            <td>
+                <input type="text" name="e_name" value="{{vo.e_name}}" />
+            </td>
+            <td>성별</td>
+            <td>
+                <input type="text" name="e_gen" value="{{vo.e_gen}}" />
+            </td>
+            <td>주소</td>
+            <td>
+                <input type="text" name="e_addr" value="{{vo.e_addr}}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="1">
+                <input type="button" value="저장" onclick="fn_mod()">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
