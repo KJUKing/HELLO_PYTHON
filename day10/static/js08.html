@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #it{
+      width: 30px;
+    }
+    #my_div{
+      height: 200px;
+    }
+  </style>
+</head>
+<script type = "text/javascript">
+  function ran(){
+    arr = [1,2,3,4,5,6,7,8,9]
+
+    for (let i = 0; i <100; i++) {
+      var rnd = parseInt(Math.random()*9);
+      a = arr[0];
+      b = arr[rnd];
+      arr[0] = b;
+      arr[rnd] = a;
+    }
+    c1 = arr[0]
+    c2 = arr[1]
+    c3 = arr[2]
+  }
+  function gets(mine, com){
+    m1 = mine()
+  }
+
+</script>
+<body>
+<table border="1px">
+  <tr>
+    <td>야구 게임</td>
+    <td>
+      <input type="text" id="it">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <input type="button" value="맞춰보세요" onclick="myclick()"/>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div id="my_div"></div>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

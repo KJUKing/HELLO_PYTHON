@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<script type="text/javascript">
+    function fn_add(){
+        location.href = "emp_add.do";
+    }
+</script>
 </head>
 <body>
 emp html</br>
@@ -22,7 +27,7 @@ emp html</br>
 </tr>
 {% endfor %}
 </table>
-<input type="button" value="추가" />
+<input type="button" value="추가" onclick="fn_add()" />
 
 </body>
 

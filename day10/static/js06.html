@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #it{
+      width: 100px;
+    }
+  </style>
+</head>
+<script type = "text/javascript">
+  function myclick(obj){
+
+    var obj_it = document.querySelector('#it')
+    var str_new = obj.value;
+    var str_old = obj_it.value;
+
+    obj_it.value = str_old + str_new;
+  }
+  function mycall(){
+    var obj_it = document.querySelector('#btn_call')
+
+    alert("calling\n" + obj_it.value)
+  }
+</script>
+<body>
+<table border="1px">
+  <tr>
+    <td colspan="3">
+      <input type="text" id="it"/>
+    </td>
+  </tr>
+  <tr>
+    <td><input type="button" class="num" value="1" onclick="myclick(this)"> </td>
+    <td><input type="button" class="num" value="2" onclick="myclick(this)" > </td>
+    <td><input type="button" class="num" value="3" onclick="myclick(this)"> </td>
+    </tr>
+  <tr>
+    <td><input type="button" class="num" value="4" onclick="myclick(this)"> </td>
+    <td><input type="button" class="num" value="5" onclick="myclick(this)"> </td>
+    <td><input type="button" class="num" value="6" onclick="myclick(this)" > </td>
+    </tr>
+  <tr>
+    <td><input type="button" class="num" value="7" onclick="myclick(this)"> </td>
+    <td><input type="button" class="num" value="8" onclick="myclick(this)"> </td>
+    <td><input type="button" class="num" value="9" onclick="myclick(this)"> </td>
+  </tr>
+  <tr>
+    <td><input type="button" class="num" value="0" onclick="myclick(this)"> </td>
+    <td colspan="2">
+      <input type="button" id="btn_call" value="call" onclick="mycall()">
+    </td>
+  </tr>
+</table>
+</body>
+</html>

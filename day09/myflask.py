@@ -29,6 +29,10 @@ def emp_mod():
     vo = de.select(e_id)
     return render_template('emp_mod.html', vo=vo)
 
+@app.route('/emp_add.do')
+def emp_add():
+    return render_template('emp_add.html')
+
 @app.route('/emp_mod.act', methods=["POST"])
 def emp_mod_act():
     e_id = request.form['e_id']
@@ -37,7 +41,24 @@ def emp_mod_act():
     e_addr = request.form['e_addr']
     de = DaoEmp()
     cnt = de.update(e_id, e_name, e_gen, e_addr)
-    return render_template('emp_mod.html', cnt=cnt)
+    return render_template('emp_mod_act.html', cnt=cnt)
+
+@app.route('/emp_add.act', methods=["POST"])
+def emp_mod_act():
+    e_id = request.form['e_id']
+    e_name = request.form['e_name']
+    e_gen = request.form['e_gen']
+    e_addr = request.form['e_addr']
+    de = DaoEmp()
+    cnt = de.insert(e_id, e_name, e_gen, e_addr)
+    return render_template('emp_add_act.html', cnt=cnt)
+
+@app.route('/emp_del.act', methods=["POST"])
+def emp_del_act():
+    e_id = request.form['e_id']
+    de = DaoEmp()
+    cnt = de.update(e_id)
+    return render_template('emp_del_act.html', cnt=cnt)
 
 if __name__ == '__main__':
     app.run(debug=True)
