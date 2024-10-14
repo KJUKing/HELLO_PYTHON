@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="jquery-3.7.1.js"></script>
+<script type = "text/javascript">
+    function myclick() {
+        $.ajax({
+            type: "GET",
+            url: "/hello.ajax",
+            dataType: "JSON",
+            contentType: "application/json",
+            success: function (response) {
+                console.log(response);
+            },
+        });
+
+    }
+
+$(function() {
+    $("#my_a").on("click", function (event){
+        myclick();
+    })
+})
+
+</script>
+
+<body>
+Hello jq01
+
+<div id="my_div">Good Morning</div>
+<a id="my_a">CLICK</a>
+</body>
+</html>

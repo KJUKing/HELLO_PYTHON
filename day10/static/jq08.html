@@ -12,6 +12,7 @@
     }
   </style>
 </head>
+<script src="jquery-3.7.1.js"></script>
 <script type="text/javascript">
   var com = "";
 
@@ -64,29 +65,29 @@
   }
 
   function myclick() {
-    var obj_it = document.getElementById("it");
-    var obj_div = document.getElementById("my_div");
-    var mine = obj_it.value;
+    var mine = $("#it").val();
     var s = getS(mine, com);
     var b = getB(mine, com);
 
     var line = mine + "\t" + s + "S" + b + "B<br/>";
-    var str_old = obj_div.innerHTML;
+    var str_old = $("#my_div").html();
 
-    obj_div.innerHTML = str_old + line;
+    $("#my_div").html(str_old + line);
 
-    obj_it.value = "";
+    $("#it").val("");
     if (s == 3) {
       alert("축하합니다");
     }
   }
 
-  function fn_init() {
+  $(function () {
+    $("#btn").on("click", function () {
+      myclick();
+    });
     com = ran3();
     console.log(com);
-  }
+  });
 
-  window.onload = fn_init;
 </script>
 <body>
 <table border="1px">
@@ -98,7 +99,7 @@
   </tr>
   <tr>
     <td colspan="2">
-      <input type="button" value="맞춰보세요" onclick="myclick()"/>
+      <input type="button" value="맞춰보세요" id="btn"/>
     </td>
   </tr>
   <tr>

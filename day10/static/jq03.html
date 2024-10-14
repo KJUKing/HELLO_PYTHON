@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #my_div{
+            height: 200px;
+
+        }
+    </style>
+</head>
+<script src="jquery-3.7.1.js"></script>
+<script type = "text/javascript">
+function myclick(){
+    var dan = $("#my_sel").val();
+    var idan = parseInt(dan);
+
+    var txt = "";
+    for (var i = 1; i <= 9; i++) {
+        txt += dan+"*"+i+"="+(i * idan)+"<br>";
+    }
+
+    $("#my_div").html(txt);
+}
+
+$(function () {
+    $("#btn").on("click", function (event) {
+        myclick();
+    });
+});
+</script>
+
+<body>
+<table border="1px">
+    <tr>
+        <td>출력단수 :</td>
+        <td>
+            <select id ="my_sel">
+                <option value="2">2단</option>
+                <option value="3">3단</option>
+                <option value="4">4단</option>
+                <option value="5">5단</option>
+                <option value="6">6단</option>
+                <option value="7">7단</option>
+                <option value="8">8단</option>
+                <option value="9">9단</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="button" value="출력하기" id="btn"/>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <div id="my_div">
+
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #my_div{
+            height: 200px;
+
+        }
+    </style>
+</head>
+<script src="jquery-3.7.1.js"></script>
+<script type = "text/javascript">
+    function myclick() {
+        var mine = "";
+        var com = "";
+        var result = "";
+        mine = $("input[name=\"hj\"]:checked").val();
+
+        var rnd = Math.random();
+        if (rnd > 0.5) {
+            com = "홀";
+        } else {
+            com = "짝";
+        }
+
+        if (mine == com) {
+            result = "이김";
+        } else {
+            result = "짐";
+        }
+
+        $("#it_com").val(com);
+        $("#it_result").val(result);
+        console.log(mine, com, result)
+
+    }
+
+    $(function () {
+        $('#btn').on("click", function (event) {
+            myclick();
+        });
+    });
+</script>
+
+<body>
+<table border="1px">
+    <tr>
+        <td>나 : </td>
+        <td>
+            <input type="radio" name="hj" value="홀"/>홀
+            <input type="radio" name="hj" value="짝"/>짝
+        </td>
+    </tr>
+    <tr>
+        <td>컴 : </td>
+        <td>
+            <input type="text" id="it_com"/>
+        </td>
+    </tr>
+    <tr>
+        <td>결과 : </td>
+        <td>
+            <input type="text" id="it_result"/>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="button" value="게임하기" id="btn"/>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
