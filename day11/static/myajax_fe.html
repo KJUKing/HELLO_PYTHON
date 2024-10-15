@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function myfetch(){
+            fetch('/fetch.ajax', {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body : JSON.stringify({menu : "짬뽕"})
+            })
+
+                .then(response => response.json())
+                .then(json => {
+                    console.log(json);
+                })
+
+
+        }
+    </script>
+</head>
+<body>
+<a href="javascript:myfetch()">fetch</a>
+
+</body>
+</html>

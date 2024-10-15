@@ -7,16 +7,19 @@
 <script src="jquery-3.7.1.js"></script>
 <script type = "text/javascript">
     function myclick() {
+        var param = {
+            'menu' : '짬뽕'
+        }
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "/hello.ajax",
+            data: JSON.stringify(param),
             dataType: "JSON",
             contentType: "application/json",
             success: function (response) {
                 console.log(response);
             },
         });
-
     }
 
 $(function() {

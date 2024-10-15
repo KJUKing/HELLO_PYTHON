@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-3.7.1.js"></script>
+<script>
+    var a =0;
+    var b =0;
+    var c =0;
+    function myclick() {
+        $.ajax({
+            type: 'POST',
+            url: '/ans.ajax',
+            dayaType: 'JSON',
+            contentType: 'application/json',
+            success: function (resp) {
+                a = reap.ans;
+            }
+        })
+        $.ajax({
+                type: 'POST',
+                url: '/ans.ajax',
+                dayaType: 'JSON',
+                contentType: 'application/json',
+                success: function (resp) {
+                    b = reap.ans;
+                }
+        })
+        $.ajax({
+            type: 'POST',
+            url: '/ans.ajax',
+            dayaType: 'JSON',
+
+            contentType: 'application/json',
+            success: function (resp) {
+                c = reap.ans;
+            }
+        })
+    }
+    var sum = a+b+c;
+
+
+    $(function () {
+        $("#my_a").on("click", function (event) {
+            myclick();
+        });
+    });
+</script>
+</body>
+</html>

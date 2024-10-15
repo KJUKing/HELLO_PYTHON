@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function fn_list() {
+            axios.post('/emp_list.ajax')
+                .then((resp) => {
+                    var obj_tbody = document.getElementById("my_tbody");
+                    const list = resp.data.list;
+                    var txt = '';
+                    for (var i = 0; i < list.length; i++) {
+                        var e_id = list[i].e_id;
+                        var e_name = list[i].e_name;
+                        var e_gen = list[i].e_gen;
+                        var e_addr = list[i].e_addr;
+                        console.log(e_id, e_name, e_gen, e_addr);
+
+                        txt += "<tr>\n";
+                        txt += "<td><a href='javascript:fn_one("+e_id+")'>"+e_id+"</a></td>\n";
+                        txt += "<td>"+e_name+"</td>";
+                        txt += "<td>"+e_gen+"</td>";
+                        txt += "<td>"+e_addr+"</td>";
+                        txt += "</tr>\n";
+                        obj_tbody.innerHTML = txt;
+                    }
+                })
+        }
+
+        function fn_one(e_id) {
+            axios.post('/emp_one.ajax', {e_id: e_id})
+                .then((resp)=>{
+                    const emp = resp.data.emp;
+
+                    document.getElementById('e_id').value = emp.e_id;
+                    document.getElementById('e_name').value = emp.e_name;
+                    document.getElementById('e_gen').value = emp.e_gen;
+                    document.getElementById('e_addr').value = emp.e_addr;
+                })
+                .catch((error)=>{
+                    console.log(error);
+                })
+
+        }
+    </script>
+</head>
+
+<body onload="fn_list()">
+EMP HTML
+<table border="1px">
+    <thead>
+        <tr>
+            <td>사번</td>
+            <td>이름</td>
+            <td>성별</td>
+            <td>주소</td>
+        </tr>
+    </thead>
+    <tbody id="my_tbody">
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+    </tbody>
+</table>
+<table border="1px">
+    <tr>
+        <td>사번</td>
+        <td><input type="text" id="e_id"/> </td>
+    </tr>
+    <tr>
+        <td>이름</td>
+        <td><input type="text" id="e_name"/> </td>
+    </tr>
+    <tr>
+        <td>성별</td>
+        <td><input type="text" id="e_gen"/> </td>
+    </tr>
+    <tr>
+        <td>주소</td>
+        <td><input type="text" id="e_addr"/> </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="button" value="추가"/>
+            <input type="button" value="수정"/>
+            <input type="button" value="삭제"/>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
