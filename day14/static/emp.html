@@ -19,10 +19,10 @@
                         console.log(e_id, e_name, e_gen, e_addr);
 
                         txt += "<tr>\n";
-                        txt += "<td><a href='javascript:fn_one("+e_id+")'>"+e_id+"</a></td>\n";
-                        txt += "<td>"+e_name+"</td>";
-                        txt += "<td>"+e_gen+"</td>";
-                        txt += "<td>"+e_addr+"</td>";
+                        txt += "<td><a href='javascript:fn_one(" + e_id + ")'>" + e_id + "</a></td>\n";
+                        txt += "<td>" + e_name + "</td>";
+                        txt += "<td>" + e_gen + "</td>";
+                        txt += "<td>" + e_addr + "</td>";
                         txt += "</tr>\n";
                         obj_tbody.innerHTML = txt;
                     }
@@ -31,16 +31,109 @@
 
         function fn_one(e_id) {
             axios.post('/emp_one.ajax', {e_id: e_id})
-                .then((resp)=>{
-                    const emp = resp.data.emp;
+                .then((resp) => {
 
-                    document.getElementById('e_id').value = emp.e_id;
-                    document.getElementById('e_name').value = emp.e_name;
-                    document.getElementById('e_gen').value = emp.e_gen;
-                    document.getElementById('e_addr').value = emp.e_addr;
+                    var obj_e_id = document.getElementById("e_id");
+                    var obj_e_name = document.getElementById("e_name");
+                    var obj_e_gen = document.getElementById("e_gen");
+                    var obj_e_addr = document.getElementById("e_addr");
+
+                    var vo = resp.data.vo;
+
+                    obj_e_id.value = vo.e_id;
+                    obj_e_name.value = vo.e_name;
+                    obj_e_gen.value = vo.e_gen;
+                    obj_e_addr.value = vo.e_addr;
+                    // const emp = resp.data.emp;
+
+                    // document.getElementById('e_id').value = emp.e_id;
+                    // document.getElementById('e_name').value = emp.e_name;
+                    // document.getElementById('e_gen').value = emp.e_gen;
+                    // document.getElementById('e_addr').value = emp.e_addr;
                 })
-                .catch((error)=>{
+                .catch((error) => {
                     console.log(error);
+                })
+
+        }
+
+        function fn_add() {
+            //ajax / emp_add.ajax
+            var obj_e_id = document.getElementById("e_id");
+            var obj_e_name = document.getElementById("e_name");
+            var obj_e_gen = document.getElementById("e_gen");
+            var obj_e_addr = document.getElementById("e_addr");
+            const param = {
+                e_id: obj_e_id.value,
+                e_name: obj_e_name.value,
+                e_gen: obj_e_gen.value,
+                e_addr: obj_e_addr.value
+            };
+            axios.post('/emp_add.ajax', param)
+                .then((resp) => {
+                    var cnt = resp.data.cnt;
+                    if (cnt == 1) {
+                        alert("추가 성공");
+                        fn_list();
+                        obj_e_id.value = "";
+                        obj_e_name.value = "";
+                        obj_e_gen.value = "";
+                        obj_e_addr.value = "";
+                    } else {
+                        alert("추가도중 문제 발생");
+                    }
+                })
+        }
+
+        function fn_mod() {
+            //ajax / emp_mod.ajax
+            //ajax / emp_add.ajax
+            var obj_e_id = document.getElementById("e_id");
+            var obj_e_name = document.getElementById("e_name");
+            var obj_e_gen = document.getElementById("e_gen");
+            var obj_e_addr = document.getElementById("e_addr");
+            const param = {
+                e_id: obj_e_id.value,
+                e_name: obj_e_name.value,
+                e_gen: obj_e_gen.value,
+                e_addr: obj_e_addr.value
+            };
+            axios.post('/emp_mod.ajax', param)
+                .then((resp) => {
+                    var cnt = resp.data.cnt;
+                    if (cnt == 1) {
+                        alert("수정 성공");
+                        fn_list();
+                        obj_e_id.value = "";
+                        obj_e_name.value = "";
+                        obj_e_gen.value = "";
+                        obj_e_addr.value = "";
+                    } else {
+                        alert("수정도중 문제 발생");
+                    }
+                })
+
+        }
+
+
+        function fn_del() {
+            var obj_e_id = document.getElementById("e_id");
+            const param = {
+                e_id: obj_e_id.value
+            };
+            axios.post('/emp_del.ajax', param)
+                .then((resp) => {
+                    var cnt = resp.data.cnt;
+                    if (cnt == 1) {
+                        alert("삭제 성공");
+                        fn_list();
+                        obj_e_id.value = "";
+                        obj_e_name.value = "";
+                        obj_e_gen.value = "";
+                        obj_e_addr.value = "";
+                    } else {
+                        alert("삭제도중 문제 발생");
+                    }
                 })
 
         }
@@ -51,46 +144,48 @@
 EMP HTML
 <table border="1px">
     <thead>
-        <tr>
-            <td>사번</td>
-            <td>이름</td>
-            <td>성별</td>
-            <td>주소</td>
-        </tr>
-    </thead>
-    <tbody id="my_tbody">
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-    </tbody>
-</table>
-<table border="1px">
     <tr>
         <td>사번</td>
-        <td><input type="text" id="e_id"/> </td>
-    </tr>
-    <tr>
         <td>이름</td>
-        <td><input type="text" id="e_name"/> </td>
-    </tr>
-    <tr>
         <td>성별</td>
-        <td><input type="text" id="e_gen"/> </td>
-    </tr>
-    <tr>
         <td>주소</td>
-        <td><input type="text" id="e_addr"/> </td>
     </tr>
+    </thead>
+    <tbody id="my_tbody">
     <tr>
-        <td colspan="2">
-            <input type="button" value="추가"/>
-            <input type="button" value="수정"/>
-            <input type="button" value="삭제"/>
-        </td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
     </tr>
+    </tbody>
 </table>
+<form action="emp_add.ajax" name="frm" method="post">
+    <table border="1px">
+        <tr>
+            <td>사번</td>
+            <td><input type="text" id="e_id"/></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" id="e_name"/></td>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td><input type="text" id="e_gen"/></td>
+        </tr>
+        <tr>
+            <td>주소</td>
+            <td><input type="text" id="e_addr"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="추가" onclick="fn_add()"/>
+                <input type="button" value="수정" onclick="fn_mod()"/>
+                <input type="button" value="삭제" onclick="fn_del()"/>
+            </td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

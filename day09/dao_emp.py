@@ -21,19 +21,19 @@ class DaoEmp:
         return vo
 
 
-    def insert(self, e_id, e_name, gen, addr):
+    def insert(self, e_id, e_name, e_gen, e_addr):
         sql = f"""
             INSERT INTO emp
-                (e_id, e_name, gen, addr)
+                (e_id, e_name, e_gen, e_addr)
             VALUES 
-                ('{e_id}','{e_name}','{gen}','{addr}')
+                ('{e_id}','{e_name}','{e_gen}','{e_addr}')
         """
 
         self.cur.execute(sql)
         self.con.commit()
         return self.cur.rowcount
 
-    def update(self, e_id, e_name, gen, addr):
+    def update(self, e_id, e_name, e_gen, e_addr):
         sql = """
             UPDATE emp
             SET
@@ -43,7 +43,7 @@ class DaoEmp:
             WHERE 
                 e_id = %s
         """
-        self.cur.execute(sql, (e_name, gen, addr, e_id))  # 매개변수 바인딩
+        self.cur.execute(sql, (e_name, e_gen, e_addr, e_id))  # 매개변수 바인딩
         self.con.commit()
         return self.cur.rowcount  # 수정된 행의 개수 반환
 
