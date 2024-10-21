@@ -1,9 +1,11 @@
 from flask import jsonify
 from flask import Flask, request, render_template, redirect
-
 from day09.dao_emp import DaoEmp
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/')

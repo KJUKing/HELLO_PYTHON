@@ -1,4 +1,4 @@
-<script>
+ <script>
     let dan = "2"
     let disp = ""
 
