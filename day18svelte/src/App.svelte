@@ -2,40 +2,33 @@
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
-  import Morning from "./lib/Morning.svelte";
+  import Morning from './lib/Morning.svelte'
   import Lotto from "./lib/Lotto.svelte";
   import Gugu from "./lib/Gugu.svelte";
   import Phone from "./lib/Phone.svelte";
   import Life from "./lib/Life.svelte";
-
-   import {onMount, onDestroy, beforeUpdate, afterUpdate, tick} from 'svelte'
+  import {afterUpdate, beforeUpdate, onDestroy, onMount} from "svelte";
   import Strike from "./lib/Strike.svelte";
   import Emp from "./lib/Emp.svelte";
+  onMount(async() => {
+    console.log('[App] onMount')
+  })
 
-    let msg = "Life Cycle"
+  onDestroy(async() => {
+    console.log('[App] onDestroy')
+  })
 
-    onMount(async () => {
-        console.log('[Life] onMount')
-    })
+  beforeUpdate(async() => {
+    console.log('[App] beforeUpdate')
+  })
 
-    onDestroy(async () => {
-        console.log('[Life] onDestroy')
-    })
-
-    beforeUpdate(async () => {
-        console.log('[Life] beforeUpdate')
-    })
-
-    afterUpdate(async () => {
-        console.log('[Life] afterUpdate')
-    })
+  afterUpdate(async() => {
+    console.log('[App] afterUpdate')
+  })
 </script>
-
 <main>
 
-
   <div class="card">
-<!--    <Morning />-->
     <Emp />
   </div>
 

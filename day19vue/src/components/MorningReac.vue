@@ -1,17 +1,17 @@
 <script setup>
 import {reactive, ref} from 'vue'
 
-const msg = reactive({msg : "Good Morning"});
+const data = reactive({msg: 'Good Morning'})
 
 let myclick = () => {
-  msg.value = "Good Evening"
+  data.msg = "Good Evening"
 }
+
 </script>
 
 <template>
-    <span>{{data.msg}}</span>
-
-  <input type="button" value="CLICK" @click="myclick"/>
+  <span>{{data.msg}}</span>
+  <input type="button" value="CLICK" @click="myclick" />
 </template>
 
 <style scoped>
