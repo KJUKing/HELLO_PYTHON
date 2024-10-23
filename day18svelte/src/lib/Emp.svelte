@@ -111,9 +111,7 @@
 </style>
 
 <a on:click={fn_list}>ajax</a>
-
-<table>
-    <tr>
+<tr>
         <td>사번</td>
         <td>이름</td>
         <td>성별</td>
@@ -126,8 +124,6 @@
         <td>{vo.gen}</td>
         <td>{vo.addr}</td>
     </tr>
-    {/each}
-</table>
 
 <table>
     <tr>

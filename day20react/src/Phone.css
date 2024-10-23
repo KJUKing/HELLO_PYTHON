@@ -1,0 +1,8 @@
+table, td {
+    border: 1px solid brown;
+
+}
+input[type='text'] {
+    width: 100px;
+    text-align: right;
+}
